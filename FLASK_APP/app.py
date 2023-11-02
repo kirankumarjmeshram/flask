@@ -2,7 +2,10 @@ from flask import Flask
 
 app = Flask(__name__)
 
-import user_controller
+# import controller.user_controller
+# import controller.product_controller
+
+from controller import user_controller, product_controller
 
 @app.route("/")
 def welcome():
