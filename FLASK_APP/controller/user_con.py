@@ -17,7 +17,7 @@ def user_addone_controller():
     # print("con",request.form)
     user_data = request.form
     obj.user_addone_model(user_data)
-    return "Hello World"
+    return "user added successfully"
 
 # @app.route("/user/addone", methods=["POST"])
 # def user_addone_controller():
@@ -31,3 +31,15 @@ def user_addone_controller():
 #             return jsonify({"message": "User added successfully"}), 201
 #     except Exception as e:
 #         return jsonify({"message": "Internal server error", "error": str(e)}), 500
+
+@app.route("/user/update", methods = ["PUT"])
+def user_update_controller():
+    # print("con",request.form)
+    user_data = request.form
+    return obj.user_update_model(user_data)
+    # return "user updated successfully"
+
+
+@app.route("/user/delete/<id>", methods = ["DELETE"])
+def user_delete_controller(id):
+    return obj.user_delete_model(id)

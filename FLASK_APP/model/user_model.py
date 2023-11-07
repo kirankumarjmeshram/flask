@@ -40,6 +40,28 @@ class user_model():
         except mysql.connector.Error as err:
             print(f"Error: {err}")
             return "An error occurred while creating the user."
+        
+    def user_update_model(self, data):
+        self.cur.execute(f"UPDATE user SET name='{data['name']}', email='{data['email']}', phone='{data['phone']}', role='{data['role']}', password='{data['password']}' WHERE id ='{data['id']}'")
+        if self.cur.rowcount >0:
+            return "User updated successfully"
+        else: 
+            return "Nothing to update"
+        
+    def user_update_model(self, data):
+        self.cur.execute(f"UPDATE user SET name='{data['name']}', email='{data['email']}', phone='{data['phone']}', role='{data['role']}', password='{data['password']}' WHERE id ='{data['id']}'")
+        if self.cur.rowcount >0:
+            return "User updated successfully"
+        else: 
+            return "Nothing to update"
+        
+    def user_delete_model(self, id):
+        self.cur.execute(f"DELETE FROM user WHERE id={id}")
+        if self.cur.rowcount >0:
+            return "User deleted successfully"
+        else: 
+            return "Nothing to delete"
+
 
 # Example usage
-model = user_model()
+# model = user_model()
